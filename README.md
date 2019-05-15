@@ -7,5 +7,4 @@ For this analysis, we are looking at 8,464 wine labels from K&L Wine Merchants, 
 
 K&L's wine labels are American heavy with 52.8% bottles originating from the States. Other wine producing countries in our analysis include Greece, France, Italy, Spain, Portugal, Germany, Argentina, Chile, Australia, New Zealand, and South Africa.
 
-Read Here: 
-
+Read Here: https://beyondtheaverage.wordpress.com/2019/05/15/the-language-of-wine/
