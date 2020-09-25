@@ -703,16 +703,3 @@ def wine_word_counter(df):
    return fruits 
 
 wine_word_counter(pais)
-
-
-
-
-
-
-
-
-
-
-
-
-
