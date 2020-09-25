@@ -31,8 +31,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from difflib import SequenceMatcher
 
-
-#import csv wine files 
+#import csv files 
 df1=pd.read_csv("por_wines1.csv",encoding="latin-1") 
 df1['pais']="Por"
 df2=pd.read_csv("wines_desc_spain.csv",encoding="latin-1") 
@@ -263,7 +262,6 @@ str_ana1=[i for i in str_ana if len(i) > 2]
 mx1=' '.join(str_ana1)
 mx1=mx1.split() 
 
-
 #function for counting most common words 
 def vino_limpiar(xy):
     xy = [word for word in mx1 if word not in stopwords.words('english')]
@@ -326,7 +324,6 @@ points['points'] =points['points'].map(lambda x: x.lstrip('-99').rstrip('aAbBcC'
 points['points']=points['points'].astype(float)
 points['points'].mean() 
 
-
 #V. text simlarities ************************************** 
 pais1=fv1[fv1.pais=="Fra"]
 word1="rhone"
@@ -377,11 +374,9 @@ s2=' '.join(str_ana1)
 
 def similar(s1,s2):
     return SequenceMatcher(None,s1,s2).ratio()
-
 similar(s1,s2)  
 
-
-#VI. tfidf  scores 
+#VI. tfidf scores 
 mx2=mx1 
 no_words=['san','warehouse','francisco','points','hollywood','points','inventory','wine','redwood',
 'wines']
@@ -392,12 +387,9 @@ tfidf_df=pd.DataFrame(features.todense(),columns=tfidf.get_feature_names())
 tops=tfidf_df.iloc[:,0:tfidf_df.shape[1]].mean() 
 tops.sort_values()
 
-
-
 #VI. Wine Regions Comparisons 
 rh=fra[fra.rhone=="yes"]
 al=fra[fra.alsace=="yes"] 
-
 listos_wines1=al['desc'].tolist()
 listos_wines1=' '.join(listos_wines1)
 listos_wines1=listos_wines1.split(' ')
@@ -427,9 +419,7 @@ s2=' '.join(str_ana1)
 #similarity between two strings 
 def similar(s1,s2):
     return SequenceMatcher(None,s1,s2).ratio()
-
 similar(s1,s2) 
-
 
 #VII. cosine similarity 
 pais=fv1
@@ -454,7 +444,6 @@ str_ana=str_ana.split()
 str_ana1=[i for i in str_ana if len(i) > 2] 
 mx1=' '.join(str_ana1) 
 mx1=mx1.split() 
-
 pais1=fv1
 pais1=pais1[pais1.pais=="Fra"] #country 
 listos_winesX=pais1['desc'].tolist() 
@@ -466,7 +455,6 @@ lwXX=' '.join(listos_winesX)
 lwX1=lwXX
 lwX1=lwX1.lower()
 lwX1=re.sub(r'\W+', ' ', lwX1) 
-
 list_anaX=lwX1.split(' ')
 list_anaX=list(filter(None,list_anaX))
 
@@ -510,7 +498,6 @@ vector1=text_to_vector(text1)
 vector2=text_to_vector(text2)
 
 cosine=get_cosine(vector1,vector2) #cosine score
-
 
 #**********************************************************************
 #TF-IDF Analysis 
